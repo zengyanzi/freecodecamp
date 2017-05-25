@@ -10,36 +10,31 @@
 
 //If either argument isn't a valid number, return undefined.
 
+
 function addTogether() {
-  
-  var numcheck=function(num){
-    if(typeof num !=='number'){
-      return undefined;
-    }else
-      return num;
-   
-  };
-  if(arguments.length>1){
-    var a=numcheck(arguments[0]);
-    var b=numcheck(arguments[1]);
-    if(a===undefined || b===undefined){
-      return undefined;
-    } else{
-      return a+b;
+ var args=new Array(arguments.length);
+   for (var i=0;i<args.length;i++){
+     args[i]=arguments[i];
+   }
+   if(args.length==2){
+     if(typeof args[0] !=='number'|| typeof args[1]!=='number'){
+       return undefined;
+     }
+     return args[0]+args[1];
+   }
+   if(args.length==1){
+     a=args[0];
+     if(typeof a !=='number'){
+       return undefined;
+     }else{
+       return function(b){
+         if(typeof b !=='number'){
+           return undefined;
+         }else
+           return a+b;
+          };
+      }
     }
-  }else{
-    var c=arguments[0];
-    if(numcheck(c)){
-      return function(arg2){
-        if(c===undefined ||numcheck(arg2)===undefined){
-          return undefined;
-        }else{
-          return c+arg2;
-        }
-      };
-    }
-  }
-  
 }
 
 addTogether(2,3);
