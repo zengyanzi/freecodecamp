@@ -24,3 +24,8 @@ function telephoneCheck(str) {
 
 
 telephoneCheck("555-555-5555");
+
+// ^denotes the beginning of the string (1\s?)? checks allows for "1" or a "1" at the beginning;
+// \d{n} checks for exactly n number of digits, as a result(\(\d{3}\)|d{3}) checks for three digits tha allowed to between parenthesis
+// [\s\-]? checks for spaces or dashes between the groups of digits
+// $ denotes the end of the string 
